@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spoerhase Music</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Gruppo Schriftart hinzugefügt -->
+  <link href="https://fonts.googleapis.com/css2?family=Gruppo&display=swap" rel="stylesheet">
+  <style>
+    /* Grundlegende Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Gruppo', sans-serif;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      line-height: 1.6;
+      color: #333;
+    }
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 1rem;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+    }
+    .nav-links a {
+      color: #2c3e50;
+      text-decoration: none;
+      padding: 0 1.5rem;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: #e67e22;
+    }
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('Galerie/hintergrundbild.jpg') fixed center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+    /* Sections */
+    section {
+      padding: 5rem 2rem;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+    .content {
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #2c3e50;
+    }
+    .map-container {
+      text-align: center;
+      margin: 20px auto;
+      max-width: 700px;
+    }
+    .map-iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+      border-radius: 10px;
+    }
+    /* Projekte */
+    .band-section {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    /* Tabelle für Veranstaltungen */
+    table {
+      width: 100%;
+      margin: 1rem 0;
+      border-collapse: collapse;
+    }
+    th,
+    td {
+      padding: 0.75rem;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+    /* Galerie */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+    .gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+    .video-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    .video-gallery iframe {
+      width: 100%;
+      max-width: 700px;
+      height: 315px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .video-gallery iframe:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+    }
+    /* Kontakt & Spenden */
+    .contact {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: #f9f9f9;
+      border-top: 1px solid #ddd;
+    }
+    .contact h2 {
+      margin-bottom: 1.5rem;
+      color: #2c3e50;
+    }
+    .contact p {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    .contact a {
+      color: #e67e22;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .contact a:hover {
+      color: #c15d14;
+    }
+    /* Größerer PayPal-Button */
+    .paypal-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 2rem;
+      transform: scale(1.2);
+      transition: transform 0.3s;
+    }
+    .paypal-btn:hover {
+      transform: scale(1.5);
+    }
+    /* Footer */
+    footer {
+      background: #2c3e50;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    .social-icons a {
+      color: white;
+      font-size: 1.5rem;
+      margin: 0 1rem;
+      transition: color 0.3s;
+      display: inline-block;
+    }
+    .social-icons a:hover {
+      transform: scale(1.5);
+      color: #e67e22;
+    }
+    /* Lightbox Styles */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.9);
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 80%;
+      margin: auto;
+      display: block;
+      border-radius: 5px;
+    }
+    .lightbox .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .lightbox .close:hover,
+    .lightbox .close:focus {
+      color: #bbb;
+    }
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        text-align: center;
+      }
+      .nav-links a {
+        padding: 0.5rem;
+      }
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      section {
+        padding: 3rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">Über Mich</a></li>
+      <li><a href="#lessons">Unterricht</a></li>
+      <li><a href="#bme">Projekte</a></li>
+      <li><a href="#events">Live</a></li>
+      <li><a href="#gallery">Galerie</a></li>
+      <li><a href="#contact">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Spoerhase Music</h1>
+      <p>News seht ihr hier</p>
+    </div>
+  </section>
+
+  <section id="about" style="background: url('bspbild.jpg') no-repeat center center; background-size: max(700px); padding: 5rem 2rem; background-attachment: fixed;">
+    <div class="content">
+      <h2>Über Mich</h2>
+      <p id="aboutText">Beispieltext...</p>
+    </div>
+  </section>
+
+  <!-- Unterricht -->
+  <section id="lessons">
+    <div class="content">
+      <h2>Unterrichtsangebote</h2>
+      <h3>Wöchentlicher Unterricht: 140 €/Monat</h3>
+      <h3>Zweiwöchentlicher Unterricht: 75 €/Monat</h3>
+      <p id="aboutLessonsText">Beispieltext Unterrichtsinhalte</p>
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d149.74718280624373!2d8.811693271079385!3d53.09304448581157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b1286eca355ee9%3A0x241c0317d4794151!2sNeukirchstra%C3%9Fe%2037a%2C%2028215%20Bremen!5e0!3m2!1sde!2sde!4v1742293849032!5m2!1sde!2sde" class="map-iframe" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Band: Black Mirror Ensemble -->
+  <section id="bme" class="band-section">
+
+    <div class="content">
+      <h2>Black Mirror Ensemble</h2>
+      <p id="aboutBMEText">Infotext...</p>
+      <br>
+      <p><a href="mailto:spoerhase.adam@gmail.com">BOOKING</a></p> <br>
+
+      <p>Folgt uns hier:</p> <br>
+      <!-- Social Media Links -->
+      <div class="social-icons">
+        <a href="https://www.youtube.com/@adamspoerhase2343/featured" target="_blank"><i class="fab fa-youtube" style="color: #ff0000;"></i></a>
+        <a href="https://www.instagram.com/black_mirror_ensemble/?hl=de" target="_blank"><i class="fab fa-instagram" style="color: #e67e22;"></i></a>
+        <a href="https://open.spotify.com/intl-de/artist/5Dh172wRVYwmBHx1b28N8E?si=qWmmq8rkRNeTQ2xyHAPp1A" target="_blank"><i class="fab fa-spotify" style="color: rgb(94, 146, 43);"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=100092548142021" target="_blank"><i class="fab fa-facebook" style="color: blue;"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Band: Leo & The Tasty Tensions -->
+  <section id="lttt" class="band-section">
+
+    <div class="content">
+      <h2>Leo & The Tasty Tensions</h2>
+      <p>Seit 2022 bin ich Altist bei "Leo & The Tasty Tensions"</p>
+      <p>Diese tolle Band findet ihr hier:</p>
+      <br>
+      <p><a href="https://www.leoandthetastytensions.info/" target="_blank" style="color: rgb(255, 166, 0);">TENSIONS SITE</a></p>
+      <br>
+      <!-- Social Media Links -->
+      <div class="social-icons">
+        <a href="https://www.youtube.com/@leoandthetastytensions" target="_blank"><i class="fab fa-youtube" style="color: #ff0000;"></i></a>
+        <a href="https://www.instagram.com/leo_and_the_tasty_tensions/?hl=de" target="_blank"><i class="fab fa-instagram" style="color: #e67e22;"></i></a>
+        <a href="https://open.spotify.com/intl-de/artist/5Dh172wRVYwmBHx1b28N8E?si=qWmmq8rkRNeTQ2xyHAPp1A" target="_blank"><i class="fab fa-spotify" style="color: rgb(94, 146, 43);"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61556718826308" target="_blank"><i class="fab fa-facebook" style="color: blue;"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Veranstaltungen -->
+  <section id="events" style="background: url('bspbild.jpg') no-repeat left bottom; background-size: max(700px); padding: 5rem 2rem; background-attachment: fixed;">
+    <div class="content">
+      <h2>Live</h2>
+      <!-- Tabelle für kommende Veranstaltungen -->
+      <h3>Kommende Konzerte</h3>
+      <table id="upcomingEventsTable">
+        <thead>
+          <tr>
+            <!-- Kopfzeile kann nach Bedarf ergänzt werden -->
+          </tr>
+        </thead>
+        <tbody id="upcomingEvents">
+          <!-- Dynamisch befüllt -->
+        </tbody>
+      </table>
+      <!-- Tabelle für vergangene Veranstaltungen -->
+      <h3>Vergangene Konzerte</h3>
+      <table id="pastEventsTable">
+        <thead>
+          <tr>
+            <!-- Kopfzeile kann nach Bedarf ergänzt werden -->
+          </tr>
+        </thead>
+        <tbody id="pastEvents">
+          <!-- Dynamisch befüllt -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Galerie -->
+  <section id="gallery">
+    <div class="content">
+      <h2>Galerie</h2>
+      <div class="gallery">
+        <!-- zeige hier alle Bilder aus dem Ordner /Galerie -->
+      </div>
+      <h2>Video</h2>
+      <div class="gallery">
+        <!-- Eingebettete YouTube-Videos -->
+        <div class="video-gallery">
+          <iframe width="600" height="315" src="https://www.youtube.com/embed/U1G6T51KyIc" allowfullscreen></iframe>
+          <iframe width="600" height="315" src="https://www.youtube.com/embed/sV_rzHV8x7w" allowfullscreen></iframe>
+          <iframe width="600" height="315" src="https://www.youtube.com/embed/h3A3Xz_w18o" allowfullscreen></iframe>
+          <iframe width="600" height="315" src="https://www.youtube.com/embed/XwNlqy1Ctf8" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontakt & Spenden -->
+  <section id="contact" class="contact">
+    <div class="content">
+      <h2>Kontakt</h2>
+      <p>Für Buchungs- und Unterrichtsanfragen schreibt mir gerne eine E-Mail:</p>
+      <p><a href="mailto:spoerhase.adam@gmail.com">spoerhase.adam@gmail.com</a></p>
+      <br>
+      <p>Oder unterstützt mich und meine Kunst finanziell:</p>
+      <a class="paypal-btn" href="https://paypal.me/beispiel" target="_blank">
+        <i class="fab fa-paypal" style="color: rgb(25, 50, 97);"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="social-icons">
+      <a href="https://www.youtube.com/@adamspoerhase2343/featured" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.instagram.com/black_mirror_ensemble/?hl=de" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://open.spotify.com/intl-de/artist/5Dh172wRVYwmBHx1b28N8E?si=qWmmq8rkRNeTQ2xyHAPp1A" target="_blank"><i class="fab fa-spotify"></i></a>
+    </div>
+    <p>&copy; 2025 Adam Spoerhase</p>
+  </footer>
+
+  <div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" src="" alt="Vergrößertes Bild">
+  </div>
+
+  <!-- JavaScript zur dynamischen Organisation der Texte -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      fetch('about.txt')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Netzwerkantwort war nicht ok');
+          }
+          return response.text();
+        })
+        .then(text => {
+          const formattedText = text.replace(/\n/g, '<br>');
+          document.getElementById('aboutText').innerHTML = formattedText;
+        })
+        .catch(error => console.error('Fehler beim Laden des Textes:', error));
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+      fetch('aboutBME.txt')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Netzwerkantwort war nicht ok');
+          }
+          return response.text();
+        })
+        .then(text => {
+          const formattedText = text.replace(/\n/g, '<br>');
+          document.getElementById('aboutBMEText').innerHTML = formattedText;
+        })
+        .catch(error => console.error('Fehler beim Laden des Textes:', error));
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+      fetch('aboutLessons.txt')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Netzwerkantwort war nicht ok');
+          }
+          return response.text();
+        })
+        .then(text => {
+          const formattedText = text.replace(/\n/g, '<br>');
+          document.getElementById('aboutLessonsText').innerHTML = formattedText;
+        })
+        .catch(error => console.error('Fehler beim Laden des Textes:', error));
+    });
+  </script>
+
+  <!-- JavaScript zur dynamischen Organisation der Events -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      fetch('events.json')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Netzwerkantwort war nicht ok');
+          }
+          return response.json();
+        })
+        .then(events => {
+          const today = new Date();
+          const upcomingEvents = events.filter(e => new Date(e.date) >= today)
+            .sort((a, b) => new Date(a.date) - new Date(b.date));
+          const pastEvents = events.filter(e => new Date(e.date) < today)
+            .sort((a, b) => new Date(b.date) - new Date(a.date));
+          const upcomingContainer = document.getElementById('upcomingEvents');
+          const pastContainer = document.getElementById('pastEvents');
+          function createRow(event) {
+            const eventDate = new Date(event.date);
+            const tr = document.createElement('tr');
+            const tdDate = document.createElement('td');
+            tdDate.textContent = eventDate.toLocaleDateString();
+            const tdBand = document.createElement('td');
+            tdBand.textContent = event.band;
+            const tdVenue = document.createElement('td');
+            tdVenue.textContent = event.venue;
+            const tdCity = document.createElement('td');
+            tdCity.textContent = event.city;
+            tr.append(tdDate, tdBand, tdVenue, tdCity);
+            return tr;
+          }
+          upcomingEvents.forEach(event => {
+            upcomingContainer.appendChild(createRow(event));
+          });
+          pastEvents.forEach(event => {
+            pastContainer.appendChild(createRow(event));
+          });
+        })
+        .catch(error => console.error('Fehler beim Laden der Events:', error));
+    });
+  </script>
+
+  <!-- JavaScript für Galerie -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const closeBtn = document.querySelector('.lightbox .close');
+      const galleryImages = document.querySelectorAll('.gallery img');
+      galleryImages.forEach(img => {
+        img.addEventListener('click', () => {
+          lightbox.style.display = 'flex';
+          lightboxImg.src = img.src;
+        });
+      });
+      closeBtn.addEventListener('click', () => {
+        lightbox.style.display = 'none';
+      });
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          lightbox.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
