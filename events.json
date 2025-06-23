@@ -1,6 +1,9 @@
 [
+  { "date": "2025-12-06", "band": "Leo & The Tasty Tensions", "venue": "Chameleon Jazz Bar", "city": "Bremen" },
+  { "date": "2025-07-27", "band": "Leo & The Tasty Tensions", "venue": "Jazz im Park", "city": "Neu Münster" },
+  { "date": "2025-08-30", "band": "Black Mirror Ensemble", "venue": "23.15h @Schwankhalle", "city": "Bremen" },
   { "date": "2025-10-03", "band": "Black Mirror Ensemble", "venue": "Kirche Habenhausen", "city": "Habenhausen" },
-  { "date": "2025-06-28", "band": "Black Mirror Ensemble", "venue": "Kulturzentrum Murkens Hof", "city": "Ritterhude" },
+  { "date": "2025-06-28", "band": "Black Mirror Ensemble", "venue": "19.00h @Kulturzentrum Murkens Hof", "city": "Ritterhude" },
   { "date": "2024-03-08", "band": "Leo & The Tasty Tensions", "venue": "LOK Kulturzentrum", "city": "Jever" },
   { "date": "2024-03-16", "band": "Leo & The Tasty Tensions", "venue": "Musikerinitiative", "city": "Bremen" },
   { "date": "2024-04-05", "band": "Leo & The Tasty Tensions", "venue": "Wilhelm13", "city": "Oldenburg" },
