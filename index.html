@@ -88,7 +88,7 @@
       align-items: center;
     }
     .content {
-      text-align: center;
+      text-align: justify;
       background-color: rgba(255, 255, 255, 0.8);
       padding: 2rem;
       border-radius: 8px;
@@ -96,6 +96,7 @@
       margin: 0 auto;
     }
     h2 {
+      text-align: center;
       font-size: 2.5rem;
       margin-bottom: 2rem;
       color: #2c3e50;
@@ -122,6 +123,12 @@
       justify-content: center;
       text-align: center;
     }
+     h3 {
+      text-align: center;      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #1a242e;
+    }
+
     
 
     /* Tabelle für Veranstaltungen */
@@ -314,7 +321,7 @@
       <h3>Wöchentlicher Unterricht: 140 €/Monat</h3>
       <h3>Zweiwöchentlicher Unterricht: 75 €/Monat</h3>
       <p id="aboutLessonsText">Beispieltext Unterrichtsinhalte</p>
-      <p><a href="mailto:spoerhase.adam@gmail.com">E-Mail</a></p> <br>
+      <h3><a href="mailto:spoerhase.adam@gmail.com">E-Mail</a></h3> <br>
       <div class="map-container">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d149.74718280624373!2d8.811693271079385!3d53.09304448581157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b1286eca355ee9%3A0x241c0317d4794151!2sNeukirchstra%C3%9Fe%2037a%2C%2028215%20Bremen!5e0!3m2!1sde!2sde!4v1742293849032!5m2!1sde!2sde" class="map-iframe" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
@@ -335,16 +342,13 @@
       <h2>Black Mirror Ensemble</h2>
       <p id="aboutBMEText">Infotext...</p>
       <br>
-      <p><a href="mailto:spoerhase.adam@gmail.com">BOOKING</a></p>
-      <br>
-      <p>Folgt uns hier:</p>
-      <br>
+      <h3><p><a href="mailto:spoerhase.adam@gmail.com">BOOKING</a></p></h3>
       <!-- Social Media Links -->
       <div class="social-icons">
-        <a href="https://www.youtube.com/@adamspoerhase2343/featured" target="_blank"><i class="fab fa-youtube" style="color: #ff0000;"></i></a>
+        <h3><a href="https://www.youtube.com/@adamspoerhase2343/featured" target="_blank"><i class="fab fa-youtube" style="color: #ff0000;"></i></a>
         <a href="https://www.instagram.com/black_mirror_ensemble/?hl=de" target="_blank"><i class="fab fa-instagram" style="color: #e67e22;"></i></a>
         <a href="https://open.spotify.com/intl-de/artist/5Dh172wRVYwmBHx1b28N8E?si=qWmmq8rkRNeTQ2xyHAPp1A" target="_blank"><i class="fab fa-spotify" style="color: rgb(94, 146, 43);"></i></a>
-        <a href="https://www.facebook.com/profile.php?id=100092548142021" target="_blank"><i class="fab fa-facebook" style="color: blue;"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=100092548142021" target="_blank"><i class="fab fa-facebook" style="color: blue;"></i></a></h3>
       </div>
     </div>
 
@@ -355,21 +359,31 @@
   <!-- Band: Leo & The Tasty Tensions -->
   <section id="lttt" class="band-section">
 
+    <div 
+    style="background-image: url('Galerie/LTT\ Backround.jpg');
+           background-size:contain; 
+           background-position: center; 
+           background-attachment: fixed;
+           background-repeat: no-repeat;">
+
     <div class="content">
       <h2>Leo & The Tasty Tensions</h2>
       <p>Seit 2022 bin ich Altist bei "Leo & The Tasty Tensions"</p>
+      <p id="aboutLTTText">Infotext...</p>
       <p>Diese tolle Band findet ihr hier:</p>
       <br>
-      <p><a href="https://www.leoandthetastytensions.info/" target="_blank" style="color: rgb(255, 166, 0);">TENSIONS SITE</a></p>
+      <h3><p><a href="https://www.leoandthetastytensions.info/" target="_blank" style="color: rgb(17, 0, 255);">TENSIONS SITE</a></p>
       <br>
       <!-- Social Media Links -->
       <div class="social-icons">
         <a href="https://www.youtube.com/@leoandthetastytensions" target="_blank"><i class="fab fa-youtube" style="color: #ff0000;"></i></a>
         <a href="https://www.instagram.com/leo_and_the_tasty_tensions/?hl=de" target="_blank"><i class="fab fa-instagram" style="color: #e67e22;"></i></a>
         <a href="https://open.spotify.com/intl-de/artist/3RdRQytWqxMEiKghWeTZFX?si=q4nQqFYESuCCNoGcfioeWg" target="_blank"><i class="fab fa-spotify" style="color: rgb(94, 146, 43);"></i></a>
-        <a href="https://www.facebook.com/profile.php?id=61556718826308" target="_blank"><i class="fab fa-facebook" style="color: blue;"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61556718826308" target="_blank"><i class="fab fa-facebook" style="color: blue;"></i></a></h3>
       </div>
     </div>
+  </div>
+
   </section>
 
   <!-- Veranstaltungen -->
@@ -415,9 +429,9 @@
         <!-- Eingebettete YouTube-Videos -->
         <div class="video-gallery">
           <iframe width="600" height="315" src="https://www.youtube.com/embed/U1G6T51KyIc" allowfullscreen></iframe>
+          <iframe width="600" height="315" src="https://www.youtube.com/embed/U_okpQpdwJo" allowfullscreen></iframe>
           <iframe width="600" height="315" src="https://www.youtube.com/embed/sV_rzHV8x7w" allowfullscreen></iframe>
           <iframe width="600" height="315" src="https://www.youtube.com/embed/h3A3Xz_w18o" allowfullscreen></iframe>
-          <!-- <iframe width="600" height="315" src="https://www.youtube.com/embed/XwNlqy1Ctf8" allowfullscreen></iframe>-->
         </div>
       </div>
     </div>
@@ -428,12 +442,12 @@
     <div class="content">
       <h2>Kontakt</h2>
       <p>Für Buchungs- und Unterrichtsanfragen schreibt mir gerne eine E-Mail:</p>
-      <p><a href="mailto:spoerhase.adam@gmail.com">spoerhase.adam@gmail.com</a></p>
-      <br>
+     <h3> <p><a href="mailto:spoerhase.adam@gmail.com">spoerhase.adam@gmail.com</a></p>
+      
       <p>Oder unterstützt mich und meine Kunst finanziell:</p>
-      <a class="paypal-btn" href="https://paypal.me/beispiel" target="_blank">
+      <a class="paypal-btn" href="https://paypal.me/BlackMirrorEnsemble?country.x=DE&locale.x=de_DE" target="_blank">
         <i class="fab fa-paypal" style="color: rgb(25, 50, 97);"></i>
-      </a>
+      </a></h3>
     </div>
   </section>
 
@@ -454,6 +468,20 @@
 
   <!-- JavaScript zur dynamischen Organisation der Texte -->
   <script>
+        document.addEventListener('DOMContentLoaded', function () {
+      fetch('aboutLTT.txt')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Netzwerkantwort war nicht ok');
+          }
+          return response.text();
+        })
+        .then(text => {
+          const formattedText = text.replace(/\n/g, '<br>');
+          document.getElementById('aboutLTTText').innerHTML = formattedText;
+        })
+        .catch(error => console.error('Fehler beim Laden des Textes:', error));
+    });
     document.addEventListener('DOMContentLoaded', function () {
       fetch('about.txt')
         .then(response => {
