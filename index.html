@@ -26,6 +26,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <!-- Gruppo Schriftart hinzugefügt -->
   <link href="https://fonts.googleapis.com/css2?family=Gruppo&display=swap" rel="stylesheet">
+
+
   <style>
     /* Grundlegende Styles */
     * {
@@ -41,30 +43,130 @@
       line-height: 1.6;
       color: #333;
     }
-    /* Navigation */
-    .navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.95);
-      padding: 1rem;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+
+  /* Navigation */
+  :root {
+    --primary-color: #2c3e50;
+    --accent-color: #e67e22;
+    --bg-opacity: 0.95;
+    --transition-speed: 0.3s;
+    --nav-height: 60px;
+  }
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, var(--bg-opacity));
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+  .navbar .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    height: var(--nav-height);
+    padding: 0 1rem;
+    position: relative;
+  }
+  .brand {
+    position: absolute;
+    left: 1rem;
+    font-family: 'Gruppo', sans-serif;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 1rem;
+  }
+  .hamburger,
+  .hamburger::before,
+  .hamburger::after {
+    content: '';
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--primary-color);
+    transition: transform var(--transition-speed);
+    border-radius: 2px;
+  }
+  .hamburger::before {
+    transform: translateY(-8px);
+  }
+  .hamburger::after {
+    transform: translateY(5px);
+  }
+  .nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+  }
+  .nav-links li {
+    position: relative;
+  }
+  .nav-links a {
+    display: block;
+    padding: 0 1rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+  }
+  .nav-links a:hover {
+    color: var(--accent-color);
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    list-style: none;
+    padding: 0.5rem 0;
+    border-radius: 4px;
+  }
+  .dropdown-content a {
+    padding: 0.5rem 1rem;
+    color: var(--primary-color);
+  }
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  /* Responsive */
+  @media (max-width: 768px) {
+    .nav-toggle {
+      display: block;
     }
     .nav-links {
+      position: absolute;
+      top: var(--nav-height);
+      left: 0;
+      width: 100%;
+      flex-direction: column;
+      background: rgba(255,255,255,var(--bg-opacity));
+      display: none;
+    }
+    .nav-links.active {
       display: flex;
-      justify-content: center;
-      list-style: none;
     }
-    .nav-links a {
-      color: #2c3e50;
-      text-decoration: none;
-      padding: 0 1.5rem;
-      transition: color 0.3s;
+    .nav-links li {
+      width: 100%;
+      text-align: center;
     }
-    .nav-links a:hover {
-      color: #e67e22;
+    .dropdown-content {
+      position: static;
+      box-shadow: none;
     }
+  }
     /* Hero Section */
     .hero {
       height: 100vh;
@@ -287,23 +389,35 @@
 </head>
 <body>
   <!-- Navigation -->
-  <nav class="navbar">
+ <nav class="navbar">
+  <div class="container">
+    <a href="#home" class="brand">Spoerhase Music</a>
+    <button class="nav-toggle" aria-label="Menü öffnen">
+      <span class="hamburger"></span>
+    </button>
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">Über Mich</a></li>
       <li><a href="#lessons">Unterricht</a></li>
-      <li><a href="#bme">Projekte</a></li>
+      <li class="dropdown">
+        <a href="#projects">Projekte <i class="fas"></i></a>
+        <ul class="dropdown-content">
+          <li><a href="#bme">Black Mirror Ensemble</a></li>
+          <li><a href="#lttt">Leo & The Tasty Tensions</a></li>
+        </ul>
+      </li>
       <li><a href="#events">Live</a></li>
       <li><a href="#gallery">Galerie</a></li>
       <li><a href="#contact">Kontakt</a></li>
     </ul>
-  </nav>
+  </div>
+</nav>
 
   <!-- Hero Section -->
   <section id="home" class="hero">
     <div class="hero-content">
       <h1>Spoerhase Music</h1>
-      <p>Schönes Konzert gestern im Murkenshof! Danke an alle, die dabei waren!</p>
+      <p>Diese Seite befindet sich noch im Aufbau.</p>
     </div>
   </section>
 
@@ -444,7 +558,7 @@
       <p>Für Buchungs- und Unterrichtsanfragen schreibt mir gerne eine E-Mail:</p>
      <h3> <p><a href="mailto:spoerhase.adam@gmail.com">spoerhase.adam@gmail.com</a></p>
       
-      <p>Oder unterstützt mich und meine Kunst finanziell:</p>
+      <p>Hier könnt ihr mich und meine Kunst finanziell unterstützen:</p>
       <a class="paypal-btn" href="https://paypal.me/BlackMirrorEnsemble?country.x=DE&locale.x=de_DE" target="_blank">
         <i class="fab fa-paypal" style="color: rgb(25, 50, 97);"></i>
       </a></h3>
@@ -465,6 +579,14 @@
     <span class="close">&times;</span>
     <img class="lightbox-content" id="lightbox-img" src="" alt="Vergrößertes Bild">
   </div>
+
+  <!-- JavaScript Navigation -->
+  <script>
+  document.querySelector('.nav-toggle').addEventListener('click', () => {
+    document.querySelector('.nav-links').classList.toggle('active');
+    document.querySelector('.hamburger').classList.toggle('open');
+  });
+</script>
 
   <!-- JavaScript zur dynamischen Organisation der Texte -->
   <script>
