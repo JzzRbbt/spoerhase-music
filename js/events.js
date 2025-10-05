@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(events => {
           const today = new Date();
+          today.setHours(0, 0, 0, 0); // normalize to midnight
           const upcomingEvents = events.filter(e => new Date(e.date) >= today)
             .sort((a, b) => new Date(a.date) - new Date(b.date));
           const pastEvents = events.filter(e => new Date(e.date) < today)
