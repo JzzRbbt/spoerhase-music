@@ -455,7 +455,7 @@ footer {
   }
   th, td {
     word-wrap: break-word;
-    text-align: center;
+    text-align: justify;
   }
 
  <!--
