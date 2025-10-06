@@ -137,6 +137,7 @@ body {
   .nav-toggle {
     display: block;
   }
+  
   .nav-links {
     position: absolute;
     top: var(--nav-height);
@@ -355,13 +356,127 @@ footer {
 }
 
 /* ===========================
-   Allgemeines Responsive Design
+   Burger-Menü Animation
 =========================== */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.5rem;
-  }
+.nav-toggle.open .hamburger {
+  transform: rotate(45deg);
+}
+.nav-toggle.open .hamburger::before {
+  transform: rotate(90deg) translateX(5px);
+}
+.nav-toggle.open .hamburger::after {
+  opacity: 0;
+}
+
+
+/* ===========================
+   Zusätzliche Mobile Styles
+=========================== */
+
+/* Tablets & kleine Laptops */
+@media (max-width: 1024px) {
   section {
-    padding: 3rem 1rem;
+    padding: 3rem 1.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
   }
 }
+
+/* Smartphones */
+@media (max-width: 600px) {
+
+  body {
+    font-size: 0.95rem;
+  }
+
+  .navbar .container {
+    justify-content: space-between;
+  }
+
+  .brand {
+    font-size: 1.2rem;
+  }
+
+  .hero {
+    height: 80vh;
+    background-attachment: scroll; /* Fix iOS bug */
+    padding: 0 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  section {
+    padding: 3rem 1rem;
+    min-height: auto;
+  }
+
+  .content {
+    padding: 1.2rem;
+    max-width: 100%;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  /* Galerie einspaltig */
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  /* Video responsive */
+  .video-gallery iframe {
+    height: 200px;
+    max-width: 100%;
+  }
+
+
+  /* Tabelle an Bildschirmbreite anpassen */
+   table {
+    display: table;
+    table-layout: fixed; /* gleichmäßige Spaltenbreiten */
+    width: 100%;
+  }
+  th, td {
+    word-wrap: break-word;
+    text-align: center;
+  }
+
+ <!--
+ /* Fixe Hintergründe abschalten */
+  [style*="background-attachment: fixed"] {
+    background-attachment: scroll !important;
+  } 
+  -->
+
+  /* Footer kompakter */
+  footer {
+    padding: 1.5rem 1rem;
+  }
+
+  .social-icons a {
+    margin: 0 0.5rem;
+    font-size: 1.2rem;
+  }
+}
+
+
+
+
+
