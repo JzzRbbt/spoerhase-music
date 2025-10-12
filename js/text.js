@@ -15,7 +15,10 @@ document.addEventListener('DOMContentLoaded', function () {
         return response.text();
       })
       .then(text => {
-        const formattedText = text.replace(/\n/g, '<br>');
+         let formattedText = text
+    .replace(/\n/g, '<br>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>') // **Wort**
+
         const element = document.getElementById(elementId);
         if (element) {
           element.innerHTML = formattedText;

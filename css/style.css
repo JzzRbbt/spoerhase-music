@@ -465,6 +465,11 @@ footer {
   } 
   -->
 
+  /* Optional: falls es mehrere feste Hintergründe gibt */
+.is-iphone [style*="background-attachment: fixed"] {
+  background-attachment: scroll !important;
+}
+
   /* Footer kompakter */
   footer {
     padding: 1.5rem 1rem;
