@@ -3,7 +3,10 @@ document.addEventListener('DOMContentLoaded', function () {
     { url: 'assets/text/aboutLTT.txt', elementId: 'aboutLTTText' },
     { url: 'assets/text/about.txt', elementId: 'aboutText' },
     { url: 'assets/text/aboutBME.txt', elementId: 'aboutBMEText' },
-    { url: 'assets/text/aboutLessons.txt', elementId: 'aboutLessonsText' }
+    { url: 'assets/text/aboutLessons.txt', elementId: 'aboutLessonsText' },
+
+    { url: 'assets/text/contact.txt', elementId: 'contactText' }
+
   ];
 
   textFiles.forEach(({ url, elementId }) => {
