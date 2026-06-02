@@ -1,4 +1,14 @@
 [
+
+  { "date": "2026-07-18", "band": "Bremen 4 Blasskapelle", "venue": "Deichbrand Cuxhaven", "city": "Bremen" },
+  { "date": "2026-06-20", "band": "Bremen 4 Blasskapelle", "venue": "Hurricane Scheeßel", "city": "Bremen" },
+  { "date": "2026-07-15", "band": "Stella Rodenbusch & Band ", "venue": "Hochschule für Künste", "city": "Bremen" },
+
+  { "date": "2026-11-07", "band": "Black Mirror Ensemble", "venue": "Zentrum für Künste", "city": "Bremen" },
+  { "date": "2026-11-06", "band": "Black Mirror Ensemble", "venue": "Zentrum für Künste", "city": "Bremen" },
+  { "date": "2026-12-05", "band": "Black Mirror Ensemble", "venue": "Zentrum für Künste", "city": "Bremen" },
+  { "date": "2026-12-06", "band": "Black Mirror Ensemble", "venue": "Zentrum für Künste", "city": "Bremen" },
+
   { "date": "2025-11-02", "band": "Schönherr Jazz Band", "venue": "Tequila Bar Neustadt", "city": "Bremen" },
   { "date": "2025-12-11", "band": "Einhorns", "venue": "Lichter der Neustadt", "city": "Bremen" },
   { "date": "2025-10-05", "band": "Prometheus Groove Collektive", "venue": "COBL by Opencampus", "city": "Kiel" },
