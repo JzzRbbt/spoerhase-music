@@ -1,23 +1,27 @@
 [
   
-  { "date": "2026-09-05", "band": "Black Mirror Ensemble", "venue": "Woltmershausener Straßenfest", "city": "Bremen" },
-  { "date": "2026-09-19", "band": "Melody-Section BME", "venue": "Lange Nacht der Bühnen ZfK", "city": "Bremen" },
-
-  { "date": "2026-07-18", "band": "Bremen 4 Blasskapelle", "venue": "Deichbrand Cuxhaven", "city": "Bremen" },
-  { "date": "2026-06-20", "band": "Bremen 4 Blasskapelle", "venue": "Hurricane Scheeßel", "city": "Bremen" },
-  { "date": "2026-07-15", "band": "Bachelorkonzert Stella Rodenbusch", "venue": "HFK Jazz-Keller", "city": "Bremen" },
+  { "date": "2026-09-05T16:45:00", "band": "Black Mirror Ensemble", "venue": "Woltmershausener Straßenfest", "city": "Bremen" },
+  { "date": "2026-09-19T19:00:00", "band": "Melody-Section BME", "venue": "Lange Nacht der Bühnen ZfK", "city": "Bremen" },
 
   { "date": "2026-11-07", "band": "Black Mirror Ensemble", "venue": "Zentrum für Künste", "city": "Bremen" },
   { "date": "2026-11-06", "band": "Black Mirror Ensemble", "venue": "Zentrum für Künste", "city": "Bremen" },
   { "date": "2026-12-05", "band": "Black Mirror Ensemble", "venue": "Zentrum für Künste", "city": "Bremen" },
   { "date": "2026-12-06", "band": "Black Mirror Ensemble", "venue": "Zentrum für Künste", "city": "Bremen" },
+  { "date": "2027-05-21", "band": "Black Mirror Ensemble", "venue": "Zentrum für Künste", "city": "Bremen" },
+  { "date": "2027-05-22", "band": "Black Mirror Ensemble", "venue": "Zentrum für Künste", "city": "Bremen" },
+  { "date": "2026-06-18", "band": "Black Mirror Ensemble", "venue": "Zentrum für Künste", "city": "Bremen" },
+  { "date": "2026-06-19", "band": "Black Mirror Ensemble", "venue": "Zentrum für Künste", "city": "Bremen" },
+
+  { "date": "2026-07-18", "band": "Bremen 4 Blasskapelle", "venue": "Deichbrand Cuxhaven", "city": "Bremen" },
+  { "date": "2026-06-20", "band": "Bremen 4 Blasskapelle", "venue": "Hurricane Scheeßel", "city": "Bremen" },
+  { "date": "2026-07-15", "band": "Bachelorkonzert Stella Rodenbusch", "venue": "HFK Jazz-Keller", "city": "Bremen" },
 
   { "date": "2025-11-02", "band": "Schönherr Jazz Band", "venue": "Tequila Bar Neustadt", "city": "Bremen" },
   { "date": "2025-12-11", "band": "Einhorns", "venue": "Lichter der Neustadt", "city": "Bremen" },
   { "date": "2025-10-05", "band": "Prometheus Groove Collektive", "venue": "COBL by Opencampus", "city": "Kiel" },
   { "date": "2025-09-13", "band": "Kleimann, Leidert, Spoerhase", "venue": "Weinfest Neumünster", "city": "Neu Münster" },
- { "date": "2025-08-06", "band": "Kleimann, Leidert, Spoerhase", "venue": "PAPP Cafe & Bar", "city": "Bremen" },
- { "date": "2025-06-21", "band": "Let`s Sing Timeless", "venue": "Stadttheater", "city": "Wilhelmshaven" },
+  { "date": "2025-08-06", "band": "Kleimann, Leidert, Spoerhase", "venue": "PAPP Cafe & Bar", "city": "Bremen" },
+  { "date": "2025-06-21", "band": "Let`s Sing Timeless", "venue": "Stadttheater", "city": "Wilhelmshaven" },
   { "date": "2026-04-24", "band": "Black Mirror Ensemble", "venue": "Jazzahead Clubnight MIB", "city": "Bremen" },
   { "date": "2025-07-27", "band": "Leo & The Tasty Tensions", "venue": "Jazz im Park", "city": "Neu Münster" },
   { "date": "2025-08-30", "band": "Black Mirror Ensemble", "venue": "23.15h @Schwankhalle", "city": "Bremen" },
