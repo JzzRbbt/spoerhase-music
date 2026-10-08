@@ -1,0 +1,11 @@
+[
+
+    { "instrument": "voc", "name": "Antonia Wohlgemuth"},
+    { "instrument": "voc", "name": "Fernanda Von Sachsen"},
+    { "instrument": "git", "name": "Leonhard Leidert"},
+    { "instrument": "sax/comp/arr", "name": "Adam Spoerhase"},
+    { "instrument": "piano", "name": "Moritz Schöwing"},
+    { "instrument": "bass", "name": "Gerald Willms"},
+    { "instrument": "drums", "name": "Jannik Stock"}
+
+]

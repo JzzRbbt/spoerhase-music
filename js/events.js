@@ -38,3 +38,5 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .catch(error => console.error('Fehler beim Laden der Events:', error));
     });
+
+    
