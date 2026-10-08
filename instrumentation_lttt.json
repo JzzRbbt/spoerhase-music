@@ -1,0 +1,9 @@
+[
+
+    { "instrument": "git", "name": "Leonhard Leidert"},
+    { "instrument": "sax", "name": "Adam Spoerhase"},
+    { "instrument": "tb", "name": "Till Marschewski"},
+    { "instrument": "bass", "name": "Didi Meyer"},
+    { "instrument": "drums", "name": "Elias Schlieper"}
+
+]

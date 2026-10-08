@@ -37,6 +37,37 @@
   <!-- CSS -->
   <link rel="stylesheet" href="css/style.css">
 
+  <style>
+    @media (max-width: 600px) {
+      #upcomingEventsTable,
+      #pastEventsTable {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      #upcomingEventsTable tbody,
+      #pastEventsTable tbody {
+        display: block;
+        width: 100%;
+      }
+
+      #upcomingEventsTable tbody tr,
+      #pastEventsTable tbody tr {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+
+      #upcomingEventsTable tbody td,
+      #pastEventsTable tbody td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+      }
+    }
+  </style>
+
   <!-- Skripte -->
   <script src="js/isIphone.js" defer></script>
 
@@ -183,38 +214,11 @@
       <h2>Black Mirror Ensemble</h2>
       <p id="aboutBMEText">Black Mirror Ensemble Live</p><br>
 
-      <table id="bmeInstrumentationTable">
-
-      <table>
-        <tr>
-          <td>voc</td>
-          <td>Antonia Wohlgemuth</td>
-        </tr>
-        <tr>
-          <td>voc</td>
-          <td>Fernanda Von Sachsen</td>
-        </tr>
-        <tr>
-          <td>git</td>
-          <td>Leonhard Leidert</td>
-        </tr>
-        <tr>
-          <td>sax / comp / arr</td>
-          <td>Adam Spoerhase</td>
-        </tr>
-        <tr>
-          <td>piano</td>
-          <td>Moritz Schöwing</td>
-        </tr>
-        <tr>
-          <td>bass</td>
-          <td>Gerald Willms</td>
-        </tr>
-        <tr>
-          <td>drums</td>
-          <td>Jannik Stock</td>
-        </tr>
+      <table id="bmeInstrumentationTable" data-instrumentation="instrumentation_bme.json">
+        <tbody></tbody>
       </table>
+
+      
 
       <br><br>
       <!-- Social Media Links -->
@@ -236,6 +240,7 @@
             class="fab fa-bandcamp"></i></a>
 
       </div>
+
       <br><br>
       <iframe data-testid="embed-iframe" style="border-radius:12px"
         src="https://open.spotify.com/embed/album/1LDtKP4Y3ZcjOma3gYedKd?utm_source=generator&theme=0" width="100%"
@@ -258,28 +263,12 @@
       <h2>Leo & The Tasty Tensions</h2>
       <p id="aboutLTTText">Infotext...</p>
       <br>
-      <table>
-        <tr>
-          <td>git / comp / arr</td>
-          <td>Leonhard Leidert</td>
-        </tr>
-        <tr>
-          <td>sax</td>
-          <td>Adam Spoerhase</td>
-        </tr>
-        <tr>
-          <td>tromb</td>
-          <td>Till Marschewski</td>
-        </tr>
-        <tr>
-          <td>bass</td>
-          <td>Didi Meyer</td>
-        </tr>
-        <tr>
-          <td>drums</td>
-          <td>Elias Schlieper</td>
-        </tr>
+
+
+      <table id="ltttInstrumentationTable" data-instrumentation="instrumentation_lttt.json">
+        <tbody></tbody>
       </table>
+
       <br><br>
       <!-- Social Media Links -->
       <div class="social-icons">
@@ -402,6 +391,38 @@
 
   <!-- JavaScript für Galerie -->
   <script src="js/gallery.js"></script>
+
+  <!-- Generischer Lader: weitere Bandtabellen können mit
+       data-instrumentation="datei.json" angebunden werden. -->
+  <script>
+    document.querySelectorAll('table[data-instrumentation]').forEach(table => {
+      fetch(table.dataset.instrumentation)
+        .then(response => {
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          return response.json();
+        })
+        .then(data => {
+          const members = Array.isArray(data)
+            ? data
+            : (data.members || data.instrumentation || data.instruments || []);
+          const tbody = table.querySelector('tbody');
+
+          members.forEach(member => {
+            const values = Array.isArray(member)
+              ? member
+              : [member.instrument || member.instruments || member.role || '', member.name || member.member || member.musician || ''];
+            const row = document.createElement('tr');
+            values.slice(0, 2).forEach(value => {
+              const cell = document.createElement('td');
+              cell.textContent = value;
+              row.appendChild(cell);
+            });
+            tbody.appendChild(row);
+          });
+        })
+        .catch(error => console.error(`Fehler beim Laden von ${table.dataset.instrumentation}:`, error));
+    });
+  </script>
 
   <!-- JavaScript zur dynamischen Organisation der Texte -->
   <script src="js/text.js"></script>

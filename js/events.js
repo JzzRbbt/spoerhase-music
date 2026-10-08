@@ -15,6 +15,41 @@ document.addEventListener('DOMContentLoaded', function () {
             .sort((a, b) => new Date(b.date) - new Date(a.date));
           const upcomingContainer = document.getElementById('upcomingEvents');
           const pastContainer = document.getElementById('pastEvents');
+
+          function createTicketLinks(tickets) {
+            const container = document.createElement('td');
+            const items = Array.isArray(tickets) ? tickets : [tickets];
+
+            items
+              .filter(Boolean)
+              .forEach((ticket) => {
+                let href = '';
+                let label = 'Tickets';
+
+                if (typeof ticket === 'string') {
+                  href = ticket;
+                } else if (ticket && typeof ticket === 'object') {
+                  href = ticket.url || ticket.href || ticket.link || ticket.ticketUrl || '';
+                  label = ticket.label || ticket.text || 'Tickets';
+                }
+
+                if (!href) return;
+
+                const link = document.createElement('a');
+                link.href = href;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                link.textContent = label;
+
+                if (container.firstChild) {
+                  container.appendChild(document.createTextNode(' | '));
+                }
+                container.appendChild(link);
+              });
+
+            return container;
+          }
+
           function createRow(event) {
             const eventDate = new Date(event.date);
             const tr = document.createElement('tr');
@@ -26,7 +61,8 @@ document.addEventListener('DOMContentLoaded', function () {
             tdVenue.textContent = event.venue;
             const tdCity = document.createElement('td');
             tdCity.textContent = event.city;
-            tr.append(tdDate, tdBand, tdVenue, tdCity);
+            const tdTickets = createTicketLinks(event.tickets);
+            tr.append(tdDate, tdBand, tdVenue, tdCity, tdTickets);
             return tr;
           }
           upcomingEvents.forEach(event => {
