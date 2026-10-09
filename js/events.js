@@ -50,11 +50,36 @@ document.addEventListener('DOMContentLoaded', function () {
             return container;
           }
 
+          function formatEventDate(dateValue, timeValue) {
+            const eventDate = new Date(dateValue);
+            if (Number.isNaN(eventDate.getTime())) {
+              return '';
+            }
+
+            const formattedDate = eventDate.toLocaleDateString('de-DE', {
+              day: '2-digit',
+              month: '2-digit',
+              year: 'numeric'
+            });
+
+            let formattedTime = '';
+
+            if (timeValue) {
+              formattedTime = timeValue;
+            } else if (typeof dateValue === 'string') {
+              const match = dateValue.match(/T(\d{1,2}:\d{2}(?::\d{2})?)/i);
+              if (match) {
+                formattedTime = match[1];
+              }
+            }
+
+            return formattedTime ? `${formattedDate}, ${formattedTime}` : formattedDate;
+          }
+
           function createRow(event) {
-            const eventDate = new Date(event.date);
             const tr = document.createElement('tr');
             const tdDate = document.createElement('td');
-            tdDate.textContent = eventDate.toLocaleDateString();
+            tdDate.textContent = formatEventDate(event.date, event.time);
             const tdBand = document.createElement('td');
             tdBand.textContent = event.band;
             const tdVenue = document.createElement('td');
