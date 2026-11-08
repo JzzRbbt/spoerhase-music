@@ -5,8 +5,8 @@
 
   { "date": "2026-11-07T20:00", "band": "Black Mirror Ensemble", "venue": "Zentrum für Kunst", "city": "Bremen", "tickets": "https://www.ticketmaster.de/event/1818057556?language=de-de&track=DiscoveryAPI&subchannel_id=10084&camefrom=de_nordwest_shop_hp&brand=de_nwt" },
   { "date": "2026-11-06T19:00", "band": "Black Mirror Ensemble", "venue": "Zentrum für Kunst", "city": "Bremen", "tickets": "https://www.ticketmaster.de/event/743513744?language=de-de&track=DiscoveryAPI&subchannel_id=10084&camefrom=de_nordwest_shop_hp&brand=de_nwt" },
-  { "date": "2026-12-05T20:00", "band": "Black Mirror Ensemble", "venue": "Zentrum für Kunst", "city": "Bremen", "tickets": "" },
-  { "date": "2026-12-06T20:00", "band": "Black Mirror Ensemble", "venue": "Zentrum für Kunst", "city": "Bremen", "tickets": "" },
+  { "date": "2026-12-05T20:00", "band": "Black Mirror Ensemble", "venue": "Zentrum für Kunst", "city": "Bremen", "tickets": "https://www.nordwest-ticket.de/suche?i_keywords=lumos" },
+  { "date": "2026-12-06T20:00", "band": "Black Mirror Ensemble", "venue": "Zentrum für Kunst", "city": "Bremen", "tickets": "https://www.nordwest-ticket.de/suche?i_keywords=lumos" },
 
   { "date": "2027-01-30T19:00", "band": "Black Mirror Ensemble", "venue": "Zentrum für Kunst", "city": "Bremen", "tickets": "" },
   { "date": "2027-01-31T18:00", "band": "Black Mirror Ensemble", "venue": "Zentrum für Kunst", "city": "Bremen", "tickets": "" },
