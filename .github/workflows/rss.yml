@@ -1,0 +1,31 @@
+name: Generate RSS Feed
+
+on:
+  push:
+    paths:
+      - 'events.json'  # Führt die Aktion aus, wenn events.json geändert wird
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Python einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: RSS-Feed Skript ausführen
+        run: python generate_feed.py
+
+      - name: feed.xml committen und pushen
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add feed.xml
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-generate RSS feed [skip ci]" && git push)

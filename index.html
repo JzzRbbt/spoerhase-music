@@ -242,10 +242,9 @@
             class="fab fa-youtube"></i></a>
         <a href="https://blackmirrorensemble.bandcamp.com/album/traumf-nger" target="_blank"><i
             class="fab fa-bandcamp"></i></a>
-        <a href="#" id="bmeRssLink" aria-label="RSS-Feed mit kommenden Konzerten des Black Mirror Ensemble"
-          title="RSS-Feed kommende Konzerte"><i class="fas fa-rss"></i></a>
-
-
+        <a href="https://jzzrbbt.github.io/spoerhase-music/feed.xml" target="_blank" rel="noopener noreferrer" aria-label="RSS Feed"><i
+          class="fas fa-rss"></i></a>
+        
             
       </div>
 
@@ -437,34 +436,7 @@
   <!-- JavaScript zur dynamischen Organisation der Texte -->
   <script src="js/text.js"></script>
 
-  <script>
-    document.getElementById('bmeRssLink').addEventListener('click', event => {
-      event.preventDefault();
-      const rows = [...document.querySelectorAll('#upcomingEvents tr')];
-      const escapeXml = value => String(value).replace(/[&<>"']/g, character => ({
-        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;'
-      })[character]);
-      const items = rows.map((row, index) => {
-        const cells = [...row.querySelectorAll('th, td')].map(cell => cell.textContent.trim()).filter(Boolean);
-        if (!cells.length) return '';
-        const text = cells.join(' – ');
-        const dateText = text.match(/\b\d{1,2}[./-]\d{1,2}[./-]\d{2,4}\b|\b\d{4}-\d{2}-\d{2}\b/);
-        let pubDate = '';
-        if (dateText) {
-          const parts = dateText[0].match(/^(\d{1,2})[./-](\d{1,2})[./-](\d{2,4})$/);
-          const date = parts
-            ? new Date(Number(parts[3].length === 2 ? `20${parts[3]}` : parts[3]), Number(parts[2]) - 1, Number(parts[1]))
-            : new Date(dateText[0]);
-          if (!Number.isNaN(date.getTime())) pubDate = `<pubDate>${date.toUTCString()}</pubDate>`;
-        }
-        return `<item><title>${escapeXml(cells[0])}</title><description>${escapeXml(text)}</description>${pubDate}<guid isPermaLink="false">bme-concert-${index}</guid><link>https://jzzrbbt.github.io/spoerhase-music/#events</link></item>`;
-      }).join('');
-      const feed = `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>Black Mirror Ensemble – kommende Konzerte</title><link>https://jzzrbbt.github.io/spoerhase-music/#events</link><description>Kommende Konzerte des Black Mirror Ensemble</description>${items}</channel></rss>`;
-      const url = URL.createObjectURL(new Blob([feed], { type: 'application/rss+xml;charset=utf-8' }));
-      window.open(url, '_blank', 'noopener');
-      setTimeout(() => URL.revokeObjectURL(url), 60000);
-    });
-  </script>
+
 
 </body>
 
